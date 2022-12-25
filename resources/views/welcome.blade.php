@@ -174,7 +174,7 @@
        </section>
 
        <footer class="bg-dark text-white p-5 mt-5 text-center">
-        <div><span>Home</span> |
+        <div><span>Dashboard</span> |
             <span>Solution</span> |
             <span>Event booking</span> |
             <span>Help Center</span> |
