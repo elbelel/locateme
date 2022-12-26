@@ -17,7 +17,7 @@
     </head>
     <body >
        <div class="">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg  bg-light">
             <div class="container-fluid">
               <a class="navbar-brand" href="#"> <img src={{ asset('/images/Logo.png') }} width="100px" height="80px" />  </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,7 +28,7 @@
                 </ul>
                 <div class="d-flex" >
                     <button type="button" class="btn btn-danger mx-3 px-5">Bookings</button>
-                    <button type="button" class="btn btn-outline-danger mx-4 px-5">Log in</button>
+                    <a href="/login">  <button type="button" class="btn btn-outline-danger mx-4 px-5">Log in</button></a>
 
                 </div>
               </div>
@@ -109,63 +109,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <div class="card bg-danger text-white">
-                        <div class="card-body">
-                            <div class="text-center">
-                                <img src={{ asset('/images/favi.png') }} />
-                                <h6> <strong>25% Off Discounted Promo Price</strong> </h6>
-                            </div>
-                            <div>
-                                <table class="table table-borderless text-white">
-                                    <thead>
-                                      <tr>
-                                      
-                                        <th scope="col">Games</th>
-                                        <th scope="col">Per Session</th>
-                                        <th scope="col">Per Hour</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                    
-                                        <td>Football</td>
-                                        <td>15k</td>
-                                        <td>1k</td>
-                                      </tr>
-                                      <tr>
-                                    
-                                        <td>Tennis</td>
-                                        <td>15k</td>
-                                        <td>1k</td>
-                                      </tr>
-                                      <tr>
-                                    
-                                        <td>Basketball</td>
-                                        <td>15k</td>
-                                        <td>1k</td>
-                                      </tr>
-                                      <tr>
-                                    
-                                        <td>Table Tennis</td>
-                                        <td>10k</td>
-                                        <td>1k</td>
-                                      </tr>
-                                      <tr>
-                                    
-                                        <td>Snooker</td>
-                                        <td>2k</td>
-                                        <td>1k</td>
-                                      </tr>
-
-                                      
-                                    </tbody>
-                                  </table>
-                            </div>
-
-                        </div>
-                    </div>
+                    <img src={{ asset('/images/price-pic.jpeg') }} width="100%" />
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <img src={{ asset('/images/farm2you.png') }} />
 
                 </div>
