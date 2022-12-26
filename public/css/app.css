@@ -27,3 +27,122 @@ a {
 .text-orange {
     color: #ff4500 !important;
 }
+
+.real {
+    display: flex;
+}
+.sidebar {
+    background: #363740;
+
+    flex: 1 1 0;
+    margin: 0;
+    padding-top: 2rem;
+    width: 280px;
+    height: 100vh;
+
+    box-shadow: 8px 0px 19px -4px rgba(36, 71, 97, 0.75);
+}
+
+.sidebar a {
+    display: block;
+    line-height: 45px;
+    color: white !important;
+    transition: 0.5s;
+    padding-left: 20px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.sidebar a:hover {
+    background: #9f7c0d;
+    color: white !important;
+    padding-left: 15px;
+}
+
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a {
+        float: left;
+    }
+    div.content {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1025px) {
+    #m-tog {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        padding-top: 8rem;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        max-width: 280px;
+        transition: 0.2s linear;
+        z-index: 1;
+    }
+    .sidebar a {
+        display: block;
+        line-height: 5px;
+        color: white !important;
+        transition: 0.5s;
+
+        margin-top: 40px;
+        cursor: pointer;
+        font-size: small;
+    }
+}
+
+.content {
+    flex: 1 1 0;
+    padding-bottom: 2rem;
+    padding-left: 1rem;
+    overflow: auto;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 5rem;
+    right: 0.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 99px;
+    cursor: pointer;
+    background: #9f7c0d;
+    z-index: 1;
+}
+
+.sidebar-toggle.show {
+    transform: rotate(45deg);
+}
+
+.sidebar-toggle.show::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+
+.sidebar-toggle.show::after {
+    top: 0;
+    transform: rotate(90deg);
+}

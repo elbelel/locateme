@@ -1,4 +1,20 @@
-<x-app-layout>
+@extends('layouts.dashboard')
+
+@section('content')
+
+<div class="content">
+    <div class="conatainer">
+        <div class="row">
+            <div class="col">
+                <h2> Activity log</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+{{-- <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -14,4 +30,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-app-layout> --}}
