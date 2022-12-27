@@ -10,43 +10,45 @@
          
         >
           <div class="py-1 px-2 text-white h3">
-ttttt          </div>
+Home          </div>
         </div>
         <a
-          to="/dashboard"
+          href="/dashboard"
         >
+        <img src={{ asset('/images/icons/dashboard.png') }} class="me-3" />
          
           Dashboard
         </a>
 
         
           <a
-            to="/bookings"
+            href="/booking"
           >
-            
+          <img src={{ asset('/images/icons/booking.png') }} class="me-3" />
             Bookings
           </a>
 
           <a
-            to="/users"
+            href="/users"
           >
-           
+          <img src={{ asset('/images/icons/users.png') }} class="me-3" />
+
             User Management
           </a>
 
           <a
-            to="/report"
+            href="/reports"
           >
-           
+          <img src={{ asset('/images/icons/reports.png') }} class="me-3" />
           Reports and Analytics
           </a>
 
-          <a
+          {{-- <a
             to="/settings"
           >
-           
+          <img src={{ asset('/images/icons/setting.png') }} class="me-3" />
           Settings
-          </a>
+          </a> --}}
 
           
 
