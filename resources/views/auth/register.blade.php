@@ -19,48 +19,56 @@
                             <p class="my-4 h4">Get started with your  <br/>account.</p>
     
                         </div>
-                        <form>
+                        <form method="POST" action="{{ route('register') }}">
+                        @csrf
                             <div class="form-group">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="first name">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="first name" name="first_name">
                                     <label for="floatingInput">First Name </label>
-                                    <span :messages="$errors->get('fname')" class="mt-2 text-danger"></span>
+                                    <span :messages="$errors->get('first_name')" class="mt-2 text-danger"></span>
                                   </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="last name">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="last name" name="last_name">
                                     <label for="floatingInput">Last Name </label>
-                                    <span :messages="$errors->get('lname')" class="mt-2 text-danger"></span>
+                                    <span :messages="$errors->get('last_name')" class="mt-2 text-danger"></span>
                                   </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="team name">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="team name" name="team_name">
                                     <label for="floatingInput">Team Name </label>
-                                    <span :messages="$errors->get('tname')" class="mt-2 text-danger"></span>
+                                    <span :messages="$errors->get('team_name')" class="mt-2 text-danger"></span>
                                   </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="phone">
+                                    <input type="text" class="form-control" id="floatingInput" placeholder="phone" name="phone_number">
                                     <label for="floatingInput">Phone </label>
-                                    <span :messages="$errors->get('phone')" class="mt-2 text-danger"></span>
+                                    <span :messages="$errors->get('phone_number')" class="mt-2 text-danger"></span>
                                   </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                                     <label for="floatingInput">Email </label>
                                     <span :messages="$errors->get('email')" class="mt-2 text-danger"></span>
                                   </div>
                             </div>
                              <div class="form-group">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                                     <label for="floatingPassword">Password</label>
                                     <span :messages="$errors->get('password')" class="mt-2" ></span>
+                                  </div>
+                             </div>
+                             <div class="form-group">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="floatingPassword" placeholder="password_confirmation" name="password_confirmation">
+                                    <label for="floatingPassword">Confirm Password</label>
+                                    <span :messages="$errors->get('password_confirmation')" class="mt-2" ></span>
                                   </div>
                              </div>
                             <div class="mb-3 form-check mt-3">

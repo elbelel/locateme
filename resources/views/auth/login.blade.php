@@ -20,17 +20,18 @@
                         <p class="my-4">Please enter your login details below</p>
 
                     </div>
-                    <form>
+                    <form method="POST" action="{{ route('login') }}">
+                    @csrf
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                                 <label for="floatingInput">Email </label>
                                 <span :messages="$errors->get('email')" class="mt-2 text-danger"></span>
                               </div>
                         </div>
                          <div class="form-group">
                             <div class="form-floating">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                                 <label for="floatingPassword">Password</label>
                                 <span :messages="$errors->get('password')" class="mt-2" ></span>
                               </div>
