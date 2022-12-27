@@ -35,6 +35,22 @@ Route::get('/users/edit', function () {
     return view('users/edit');
 });
 
+Route::get('/booking', function () {
+    return view('booking/index');
+});
+
+Route::get('/booking/create', function () {
+    return view('booking/create');
+});
+
+Route::get('/booking/edit', function () {
+    return view('booking/edit');
+});
+
+Route::get('/reports', function () {
+    return view('reports/index');
+});
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
