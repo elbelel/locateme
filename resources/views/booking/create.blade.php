@@ -5,12 +5,13 @@
     <div class="row">
         <div class="col mt-3">
             <h3 class="my-5">Create New Booking</h3>
-            <form>
+            <form method="POST" action="{{ route('bookingstore') }}">
+                @csrf
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Username">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="duration">
                                 <label for="floatingInput">Duration </label>
                                 <span :messages="$errors->get('username')" class="mt-2 text-danger"></span>
                               </div>
@@ -20,7 +21,7 @@
                     <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" aria-label="Default select example" name="facility">
                                     <option selected>Please select facility</option>
                                     <option value="1">Footbal</option>
                                     <option value="2">Basketball</option>
@@ -34,7 +35,7 @@
                 </div>
 
                 <div class="row">
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
                                 <select class="form-select" aria-label="Default select example">
@@ -49,20 +50,28 @@
                                 <span :messages="$errors->get('lname')" class="mt-2 text-danger"></span>
                               </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Price">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Price" name="price">
                                 <label for="floatingInput">Price </label>
                                 <span :messages="$errors->get('price')" class="mt-2 text-danger"></span>
                               </div>
                         </div>
                     </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="form-floating mb-3">
+                                <input type="date" class="form-control" id="floatingInput" placeholder="Description" name="year" >
+                                <label for="floatingInput">Year </label>
+                                <span :messages="$errors->get('description')" class="mt-2 text-danger"></span>
+                              </div>
+                        </div>
                 </div>
 
                 <div class="row">
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="Description">
@@ -71,7 +80,7 @@
                               </div>
                         </div>
                         
-                    </div>
+                    </div> -->
                     <div class="col">
                         {{-- <div class="form-group">
                             <div class="form-floating mb-3">
@@ -90,8 +99,8 @@
 
                 
                 <div class=" mt-5 text-center">
-                    <button type="submit" class="btn bg-orange px-5 py-2 m-3">Cancel</button>
-                    <a href="/booking" ><button type="submit" class="btn btn-success px-5 py-2">Create Booking</button></a>
+                <a href="/booking" class="btn bg-orange px-5 py-2 m-3" >Cancel</a>
+                   <button type="submit" class="btn btn-success px-5 py-2">Create Booking</button>
 
                   </div>
                 

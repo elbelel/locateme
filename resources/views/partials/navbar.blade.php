@@ -18,9 +18,15 @@
                 Admin <span><img src={{ asset('/images/icons/user.png') }} width="30" /></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#"> <small>Profile</small> </a></li>
+                <li><a class="dropdown-item" href="{{route('profile.edit')}}"> <small>Profile</small> </a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#"> <small>Logout</small> </a></li>
+                <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <li><a class="dropdown-item" href="{{route('logout')}}" 
+                onclick="event.preventDefault();
+                this.closest('form').submit();"
+                > <small>      {{ __('Log Out') }} </small> </a></li>
+                </form>                        
               </ul>
             </li>
             

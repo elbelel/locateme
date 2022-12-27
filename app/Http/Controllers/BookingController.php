@@ -15,6 +15,9 @@ class BookingController extends Controller
     public function index()
     {
         //
+        $bookings = Booking::all();
+
+        return view('booking/index',['bookings'=>$bookings]);
     }
 
     /**
@@ -25,6 +28,7 @@ class BookingController extends Controller
     public function create()
     {
         //
+        return view('booking/create');
     }
 
     /**
@@ -36,6 +40,18 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         //
+        $user = Booking::create([
+            'session_id'=>'FFY'.rand(99,999),
+            'duration'=>$request->duration,
+            'year'=>$request->year,
+            'price'=>$request->price,
+            'facilities_id'=>$request->facility
+        ]);
+
+        $bookings = Booking::all();
+
+        return view('booking/index',['bookings'=>$bookings]);
+        
     }
 
     /**
@@ -55,9 +71,13 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function edit(Booking $booking)
+    public function edit(Booking $booking, $id)
     {
         //
+        // dd($id);
+        $booking = Booking::find($id);
+        // dd($booking);
+        return view('booking/edit',['booking'=>$booking]);
     }
 
     /**
@@ -67,10 +87,19 @@ class BookingController extends Controller
      * @param  \App\Booking  $booking
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Booking $booking)
+    public function update(Request $request)
     {
         //
-    }
+        $booking = Booking::find($request->id);
+            $booking->duration = $request->duration;
+            $booking->year=$request->year;
+            $booking->price=$request->price;
+            $booking->facilities_id=$request->facility;
+        $booking->save();
+        $bookings = Booking::all();
+
+        return view('booking/index',['bookings'=>$bookings]);
+        }
 
     /**
      * Remove the specified resource from storage.

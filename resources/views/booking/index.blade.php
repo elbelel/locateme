@@ -19,29 +19,28 @@
                         <th scope="col">Season ID</th>
                         <th scope="col">Duration</th>
                         <th scope="col">Facility</th>
-                        <th scope="col">Booking ID</th>
-                        <th scope="col">Time Slot</th>
+                        <!-- <th scope="col">Booking ID</th> -->
                         <th scope="col">Date</th>
                         <th scope="col">Price</th>
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
                     <tbody>
+                    @foreach($bookings  as $booking)
                       <tr>
                         <th scope="row">1</th>
-                        <th >FAD - 00212</th>
-                        <td>1 hour</td>
-                        <td>Football</td>
-                        <td>110229966</td>
-                        <td>11:00 am - 12:00 pm</td>
-                        <td>18 December</td>
-                        <td>N20,000</td>
-                        <td>            <a href="/booking/edit">
+                        <th >{{$booking->session_id}}</th>
+                        <td>{{$booking->duration}}</td>
+                        <td>{{$booking->facilities_id}}</td>
+                        <!-- <td>{{$booking->season_id}}</td> -->
+                        <td>{{$booking->created_at}}</td>
+                        <td>N{{$booking->price}}</td>
+                        <td>            <a href="/booking/edit/{{$booking->id}}">
                             <button type="button" class="btn btn-info btn-sm">Edit</button>
                         </a>
                         </td>
                       </tr>
-                      
+                      @endforeach
                     </tbody>
                   </table>
             </div>
