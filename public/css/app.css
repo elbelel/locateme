@@ -54,9 +54,10 @@ a {
 }
 
 .sidebar a:hover {
-    background: #9f7c0d;
+    background: #9fa2b4;
     color: white !important;
     padding-left: 15px;
+    border-left: 4px solid white;
 }
 
 @media screen and (max-width: 700px) {

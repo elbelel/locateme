@@ -18,9 +18,9 @@
                 Admin <span><img src={{ asset('/images/icons/user.png') }} width="30" /></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="#"> <small>Profile</small> </a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="#"> <small>Logout</small> </a></li>
               </ul>
             </li>
             

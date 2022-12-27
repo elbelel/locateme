@@ -6,7 +6,27 @@
     <div class="conatainer">
         <div class="row">
             <div class="col">
-                <h2> Activity log</h2>
+                <h2> Recent Bookings</h2>
+
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Booking</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <th >Chris</th>
+                        <td>Football</td>
+                        <td class="text-warning">Pending</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
             </div>
         </div>
     </div>
