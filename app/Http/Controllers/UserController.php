@@ -15,7 +15,9 @@ class UserController extends Controller
     public function index()
     {
         //
-        return view('users/index');
+        $users = User::all();
+
+        return view('users/index',['users'=>$users]);
     }
     /**
      * Show the form for creating a new resource.
@@ -37,7 +39,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-    }
+        $user = User::create([
+            'first_name'=>$request->first_name,
+            'last_name'=>$request->last_name,
+            'name'=>$request->name,
+            'phone_number'=>$request->phone_number,
+            'email'=>$request->email,
+            'password'=>"Password123",
+            'role'=>1
+        ]);
+
+        $users = User::all();
+
+        return view('users/index',['users'=>$users]);
+        }
 
      /**
      * Display the specified resource.
@@ -56,10 +71,12 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(User $user,$id)
     {
         //
-        return view('users/edit');
+        $user = User::find($id);
+        // dd($booking);
+        return view('users/edit', ['user'=>$user]);
     }
 
     /**
@@ -72,6 +89,16 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         //
+        $user = User::find($request->id);
+        $user->name = $request->name;
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->phone_number = $request->phone_number;
+
+        $user->save();
+        $users = User::all();
+
+    return view('users/index',['users'=>$users]);
     }
 
     /**

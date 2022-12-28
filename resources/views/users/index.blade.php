@@ -25,19 +25,20 @@
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach($users as $user)
                       <tr>
-                        <th scope="row">1</th>
-                        <th >Chris</th>
-                        <td>Chris Chukwuebuka</td>
-                        <td>chrischukwuebuka@gmail.com</td>
-                        <td>0958685556</td>
+                        <th scope="row"></th>
+                        <th >{{$user->name}}</th>
+                        <td>{{$user->first_name}}{{ $user->last_name}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->phone_number}}</td>
                         <td>Active</td>
-                        <td>            <a href="/users/edit">
+                        <td>            <a href="/users/edit/{{$user->id}}">
                             <button type="button" class="btn btn-info btn-sm">Edit</button>
                         </a>
                         </td>
                       </tr>
-                      
+                      @endforeach
                     </tbody>
                   </table>
             </div>
