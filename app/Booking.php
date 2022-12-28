@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Facility;
 
 class Booking extends Model
 {
@@ -15,4 +16,10 @@ class Booking extends Model
         'price',
         'facilities_id'
     ];
+
+
+    public function facility()
+    {
+        return $this->hasMany(Facility::class,'facilities_id');
+    }
 }
