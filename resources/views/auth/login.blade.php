@@ -20,6 +20,12 @@
                         <p class="my-4">Please enter your login details below</p>
 
                     </div>
+                    @if ($message = Session::get('status'))
+                    <div class="alert alert-success alert-block">
+                        <button type="button" class="close" data-dismiss="alert">×</button>	
+                            <strong>{{ $message }}</strong>
+                    </div>
+                    @endif
                     <form method="POST" action="{{ route('login') }}">
                     @csrf
                         <div class="form-group">
@@ -52,8 +58,7 @@
                            
                           </div>
                         <div class="text-center my-3">
-                            <a href="/forgot-password">Forgot your password?</a>
-                            <p></p>
+                            <a href="{{ route('password.request') }}">Forgot your password?</a>
                             <a href="/register" class="text-black">Don't have an account? <strong class="text-orange ">Sign Up</strong>
                             </a>
                         </div>
