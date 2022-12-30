@@ -25,43 +25,55 @@
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="floatingInput" placeholder="first name" name="first_name">
                                     <label for="floatingInput">First Name </label>
-                                    <span :messages="$errors->get('first_name')" class="mt-2 text-danger"></span>
-                                  </div>
+                                    @error('first_name')
+                                    <span class="mt-2  text-danger" >{{$errors->first('first_name')}}</span>
+                                    @enderror                                  
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="floatingInput" placeholder="last name" name="last_name">
                                     <label for="floatingInput">Last Name </label>
-                                    <span :messages="$errors->get('last_name')" class="mt-2 text-danger"></span>
-                                  </div>
+                                    @error('last_name')
+                                    <span class="mt-2  text-danger" >{{$errors->first('last_name')}}</span>
+                                    @enderror                                  
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="floatingInput" placeholder="team name" name="team_name">
                                     <label for="floatingInput">Team Name </label>
-                                    <span :messages="$errors->get('team_name')" class="mt-2 text-danger"></span>
-                                  </div>
+                                    @error('team_name')
+                                    <span class="mt-2  text-danger" >{{$errors->first('team_name')}}</span>
+                                    @enderror                                  
+                                </div>
                             </div>
 
                             <div class="form-group">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="floatingInput" placeholder="phone" name="phone_number">
                                     <label for="floatingInput">Phone </label>
-                                    <span :messages="$errors->get('phone_number')" class="mt-2 text-danger"></span>
-                                  </div>
+                                    @error('phone_number')
+                                    <span class="mt-2  text-danger" >{{$errors->first('phone_number')}}</span>
+                                    @enderror                                      
+                                </div>
                             </div>
                             <div class="form-group">
                                 <div class="form-floating mb-3">
                                     <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                                     <label for="floatingInput">Email </label>
-                                    <span :messages="$errors->get('email')" class="mt-2 text-danger"></span>
-                                  </div>
+                                    @error('email')
+                                    <span class="mt-2  text-danger" >{{$errors->first('email')}}</span>
+                                    @enderror                                 
+                                 </div>
                             </div>
                              <div class="form-group">
-                                <div class="form-floating">
+                                <div class="form-floating mb-3">
                                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                                     <label for="floatingPassword">Password</label>
-                                    <span :messages="$errors->get('password')" class="mt-2" ></span>
+                                    @error('password')
+                                    <span class="mt-2  text-danger" >{{$errors->first('password')}}</span>
+                                    @enderror
                                   </div>
                              </div>
                              <div class="form-group">
@@ -71,12 +83,12 @@
                                     <span :messages="$errors->get('password_confirmation')" class="mt-2" ></span>
                                   </div>
                              </div>
-                            <div class="mb-3 form-check mt-3">
+                            <!-- <div class="mb-3 form-check mt-3">
                               <input type="checkbox" class="form-check-input" id="exampleCheck1">
                               <label class="form-check-label" for="exampleCheck1">By ticking, you agree to our terms and 
                                 conditions</label>
                               
-                            </div>
+                            </div> -->
     
                             
                             <div class="d-grid gap-2 mt-5">

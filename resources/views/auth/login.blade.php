@@ -26,15 +26,19 @@
                             <div class="form-floating mb-3">
                                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                                 <label for="floatingInput">Email </label>
-                                <span :messages="$errors->get('email')" class="mt-2 text-danger"></span>
-                              </div>
+                                @error('email')
+                                    <span class="mt-2  text-danger" >{{$errors->first('email')}}</span>
+                                    @enderror                            
+                                </div>
                         </div>
                          <div class="form-group">
                             <div class="form-floating">
                                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                                 <label for="floatingPassword">Password</label>
-                                <span :messages="$errors->get('password')" class="mt-2" ></span>
-                              </div>
+                                @error('password')
+                                    <span class="mt-2  text-danger" >{{$errors->first('password')}}</span>
+                                    @enderror
+                            </div>
                          </div>
                         <div class="mb-3 form-check mt-3">
                           <input type="checkbox" class="form-check-input" id="exampleCheck1">

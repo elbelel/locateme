@@ -19,7 +19,7 @@
                         <th scope="col">Season ID</th>
                         <th scope="col">Duration</th>
                         <th scope="col">Facility</th>
-                        <!-- <th scope="col">Booking ID</th> -->
+                        <th scope="col">Image</th>
                         <th scope="col">Date</th>
                         <th scope="col">Price</th>
                         <th scope="col">Action</th>
@@ -33,6 +33,10 @@
                         <td>{{$booking->duration}}</td>
                         <td>{{$booking->facilities_id}}</td>
                         <!-- <td>{{$booking->season_id}}</td> -->
+                        <td>
+                          <img src="{{ url('public/Image/'.$booking->image) }}"
+                    style="height: 100px; width: 150px;">
+                        </td>
                         <td>{{$booking->created_at}}</td>
                         <td>N{{$booking->price}}</td>
                         <td>            <a href="/booking/edit/{{$booking->id}}">

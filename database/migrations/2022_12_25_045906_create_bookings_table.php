@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('session_id');
             $table->string('duration');
             $table->string('year');
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
             $table->string('price');
             $table->integer('facilities_id');
 
