@@ -20,13 +20,22 @@
                         <p class="my-4">Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.</p>
 
                     </div>
-                    <form>
+                    @if ($message = Session::get('status'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>	
+                                <strong>{{ $message }}</strong>
+                        </div>
+                        @endif
+                    <form method="POST" action="{{ route('password.email') }}">
+                        @csrf
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name='email'>
                                 <label for="floatingInput">Email </label>
-                                <span :messages="$errors->get('email')" class="mt-2 text-danger"></span>
-                              </div>
+                                @error('email')
+                                    <span class="mt-2  text-danger" >{{$errors->first('email')}}</span>
+                                @enderror                             
+                             </div>
                         </div>
                         
                         

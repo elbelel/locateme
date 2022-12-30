@@ -22,6 +22,6 @@ class Booking extends Model
 
     public function facility()
     {
-        return $this->hasMany(Facility::class,'id');
+        return $this->belongsTo(Facility::class,'facilities_id');
     }
 }

@@ -31,7 +31,7 @@
                         <th scope="row">1</th>
                         <th >{{$booking->session_id}}</th>
                         <td>{{$booking->duration}}</td>
-                        <td>{{$booking->facilities_id}}</td>
+                        <td>{{$booking->facility->name}}</td>
                         <!-- <td>{{$booking->season_id}}</td> -->
                         <td>
                           <img src="{{ url('public/Image/'.$booking->image) }}"

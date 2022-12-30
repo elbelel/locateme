@@ -20,28 +20,38 @@
                         <p class="my-4">Please enter your  details to reset your password</p>
 
                     </div>
-                    <form>
+    
+                    <form method="POST" action="{{ route('password.store') }}">
+                    @csrf
+                    <input type="hidden" name="token" value="{{ $request->route('token') }}">
+
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" type="email" name="email" :value="old('email', $request->email)" required autofocus>
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
                                 <label for="floatingInput">Email </label>
-                                <span :messages="$errors->get('email')" class="mt-2 text-danger"></span>
-                              </div>
+                                @error('email')
+                                    <span class="mt-2  text-danger" >{{$errors->first('email')}}</span>
+                                    @enderror                              </div>
                         </div>
                         <div class="form-group mb-3">
                             <div class="form-floating">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
                                 <label for="floatingPassword">Password</label>
-                                <span :messages="$errors->get('password')" class="mt-2" ></span>
-                              </div>
+                                @error('password')
+                                    <span class="mt-2  text-danger" >{{$errors->first('password')}}</span>
+                                    @enderror
+                                </div>
                          </div>
 
                          <div class="form-group mb-3">
                             <div class="form-floating">
-                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password_confirmation">
                                 <label for="floatingPassword">Confirm Password</label>
-                                <span :messages="$errors->get('confirm_password')" class="mt-2" ></span>
-                              </div>
+                                @error('password_confirmation')
+                                    <span class="mt-2  text-danger" >{{$errors->first('password_confirmation')}}</span>
+                                    @enderror
+                                                              
+                                </div>
                          </div>
                         
 
