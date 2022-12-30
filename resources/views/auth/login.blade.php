@@ -52,7 +52,8 @@
                            
                           </div>
                         <div class="text-center my-3">
-                            <p>Forgot your password?</p>
+                            <a href="/forgot-password">Forgot your password?</a>
+                            <p></p>
                             <a href="/register" class="text-black">Don't have an account? <strong class="text-orange ">Sign Up</strong>
                             </a>
                         </div>

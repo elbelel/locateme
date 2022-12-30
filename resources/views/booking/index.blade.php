@@ -37,7 +37,7 @@
                           <img src="{{ url('public/Image/'.$booking->image) }}"
                     style="height: 100px; width: 150px;">
                         </td>
-                        <td>{{$booking->created_at}}</td>
+                        <td>  {{ \Carbon\Carbon::parse($booking->created_at)->isoFormat('MMM Do YYYY')}}</td>
                         <td>N{{$booking->price}}</td>
                         <td>            <a href="/booking/edit/{{$booking->id}}">
                             <button type="button" class="btn btn-info btn-sm">Edit</button>

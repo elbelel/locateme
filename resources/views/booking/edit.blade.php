@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col mt-3">
-            <h3 class="my-5">Edit New Booking</h3>
+            <h3 class="my-5">Edit  Booking</h3>
             <form method="POST" action="{{ route('bookingupdate') }}">
                 @csrf
                 <div class="row">

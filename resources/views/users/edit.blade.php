@@ -83,15 +83,11 @@
                     <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <!-- <input type="text" class="form-control" id="floatingInput" placeholder="role" name="role" value="{{$user->role == '0'? 'Admin' :'User'}}" disabled> -->
-                                <!-- <label for="floatingInput">Role </label> -->
-                                <select class="form-select" aria-label="Default select example" name="role" value="{{$user->role}}" >
-                                    <option selected>Please select Role</option>
-                                    <option value="1">Footbal</option>
-                                    <option value="2">Basketball</option>
-                                    <option value="3">Tennis</option>
-                                    <option value="4">Health bar</option>
-                                  </select>      
+                                  
+                               
+                                  <input type="text" class="form-control" id="floatingInput" placeholder="role" name="role" value="{{$user->role == "1" ? "Admin" : "User"}}" disabled>
+                                  <label for="floatingInput">Role </label>
+
                                 @error('role')
                                     <span class="mt-2  text-danger" >{{$errors->first('role')}}</span>
                                     @enderror                                  
