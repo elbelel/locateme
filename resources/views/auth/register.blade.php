@@ -80,7 +80,7 @@
     
                             
                             <div class="d-grid gap-2 mt-5">
-                                <button type="submit" class="btn bg-orange btn-lg">Login</button>
+                                <button type="submit" class="btn bg-orange btn-lg">Register</button>
                                
                               </div>
                             <div class="text-center my-3">

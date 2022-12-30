@@ -76,3 +76,8 @@ Route::post('/users/update',[UserController::class, 'update'])->name('userupdate
 
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/book', function () {
+    return view('book');
+});
