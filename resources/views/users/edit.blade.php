@@ -14,8 +14,9 @@
                                 <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="name" value="{{$user->name}}">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="id" value="{{$user->id}}" hidden>
                                 <label for="floatingInput">Username </label>
-                                <span :messages="$errors->get('username')" class="mt-2 text-danger"></span>
-                              </div>
+                                @error('name')
+                                    <span class="mt-2  text-danger" >{{$errors->first('name')}}</span>
+                                    @enderror                                  </div>
                         </div>
                         
                     </div>
@@ -24,8 +25,9 @@
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="First name" name="first_name" value="{{$user->first_name}}">
                                 <label for="floatingInput">First Name </label>
-                                <span :messages="$errors->get('fname')" class="mt-2 text-danger"></span>
-                              </div>
+                                @error('first_name')
+                                    <span class="mt-2  text-danger" >{{$errors->first('first_name')}}</span>
+                                    @enderror                                  </div>
                         </div>
                     </div>
                 </div>
@@ -36,18 +38,20 @@
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="Last name" name="last_name" value="{{$user->last_name}}">
                                 <label for="floatingInput">Last Name </label>
-                                <span :messages="$errors->get('lname')" class="mt-2 text-danger"></span>
-                              </div>
+                                @error('last_name')
+                                    <span class="mt-2  text-danger" >{{$errors->first('last_name')}}</span>
+                                    @enderror                                  </div>
                         </div>
                         
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Email" name="email" value="{{$user->email}}">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Email" name="email" value="{{$user->email}}" disabled>
                                 <label for="floatingInput">Email </label>
-                                <span :messages="$errors->get('email')" class="mt-2 text-danger"></span>
-                              </div>
+                                @error('email')
+                                    <span class="mt-2  text-danger" >{{$errors->first('email')}}</span>
+                                    @enderror                                  </div>
                         </div>
                     </div>
                 </div>
@@ -58,8 +62,9 @@
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="Mobile" name="phone_number" value="{{$user->phone_number}}">
                                 <label for="floatingInput">Mobile </label>
-                                <span :messages="$errors->get('mobile')" class="mt-2 text-danger"></span>
-                              </div>
+                                @error('phone_number')
+                                    <span class="mt-2  text-danger" >{{$errors->first('phone_number')}}</span>
+                                    @enderror                                  </div>
                         </div>
                         
                     </div>
@@ -78,10 +83,19 @@
                     <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="role" name="role" value="{{$user->role == '1'? 'Admin' :'User'}}" disabled>
-                                <label for="floatingInput">Role </label>
-                                <span :messages="$errors->get('mobile')" class="mt-2 text-danger"></span>
-                              </div>
+                                <!-- <input type="text" class="form-control" id="floatingInput" placeholder="role" name="role" value="{{$user->role == '0'? 'Admin' :'User'}}" disabled> -->
+                                <!-- <label for="floatingInput">Role </label> -->
+                                <select class="form-select" aria-label="Default select example" name="role" value="{{$user->role}}" >
+                                    <option selected>Please select Role</option>
+                                    <option value="1">Footbal</option>
+                                    <option value="2">Basketball</option>
+                                    <option value="3">Tennis</option>
+                                    <option value="4">Health bar</option>
+                                  </select>      
+                                @error('role')
+                                    <span class="mt-2  text-danger" >{{$errors->first('role')}}</span>
+                                    @enderror                                  
+                                </div>
                         </div>
                         
                     </div>

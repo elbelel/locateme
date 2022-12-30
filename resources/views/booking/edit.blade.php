@@ -11,27 +11,30 @@
                     <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="duration" value="{{$booking->duration}}">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="duration" value="{{$booking->duration}}" disabled>
                                 <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="id" value="{{$booking->id}}" hidden>
 
                                 <label for="floatingInput">Duration </label>
-                                <span :messages="$errors->get('username')" class="mt-2 text-danger"></span>
-                              </div>
+                                @error('duration')
+                                    <span class="mt-2  text-danger" >{{$errors->first('duration')}}</span>
+                                    @enderror             
+                                </div>
                         </div>
                         
                     </div>
                     <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <select class="form-select" aria-label="Default select example" name="facility" value="{{$booking->facilities_id}}">
-                                    <option selected>Please select facility</option>
-                                    <option value="1">Footbal</option>
-                                    <option value="2">Basketball</option>
-                                    <option value="3">Tennis</option>
-                                    <option value="4">Health bar</option>
+                            <select class="form-select" aria-label="Default select example" name="facility">
+                                <option selected>Please select facility</option>
+                                @foreach($facilities as $facility)
+                                <option value="{{ $facility->id }}" selected="{{$booking->facilities_id == $facility->id ? 'true':'false'}}">{{ $facility->name }}</option> 
+                                @endForeach
                                   </select>                                
-                                <span :messages="$errors->get('lname')" class="mt-2 text-danger"></span>
-                              </div>
+                                  @error('facility')
+                                    <span class="mt-2  text-danger" >{{$errors->first('facility')}}</span>
+                                    @enderror                             
+                                 </div>
                         </div>
                     </div>
                 </div>
@@ -58,11 +61,12 @@
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" placeholder="Price" name="price" value="{{$booking->price}}">
                                 <label for="floatingInput">Price </label>
-                                <span :messages="$errors->get('price')" class="mt-2 text-danger"></span>
-                              </div>
+                                @error('price')
+                                    <span class="mt-2  text-danger" >{{$errors->first('price')}}</span>
+                                    @enderror                              </div>
                         </div>
                     </div>
-                    <div class="col">
+                    <!-- <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
                                 <input type="date" class="form-control" id="floatingInput" placeholder="Description" name="year" value="{{$booking->year}}" >
@@ -70,31 +74,45 @@
                                 <span :messages="$errors->get('description')" class="mt-2 text-danger"></span>
                               </div>
                         </div>
-                </div>
-
-                <div class="row">
-                    <!-- <div class="col">
+                </div> -->
+                <div class="col">
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="Description">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Description" name="description" value="{{$booking->description}}">
                                 <label for="floatingInput">Description </label>
-                                <span :messages="$errors->get('description')" class="mt-2 text-danger"></span>
-                              </div>
+                                @error('description')
+                                    <span class="mt-2  text-danger" >{{$errors->first('description')}}</span>
+                                    @enderror                              
+                                </div>                             
+                             </div>
                         </div>
                         
-                    </div> -->
-                    <div class="col">
-                        {{-- <div class="form-group">
-                            <div class="form-floating mb-3">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Please select role</option>
-                                    <option value="all">All Permissions</option>
-                                    <option value="basic">Basic Permissions</option>
-                                  </select>                                
-                                <span :messmages="$errors->get('lname')" class="mt-2 text-danger"></span>
-                              </div>
-                        </div> --}}
                     </div>
+
+                <div class="row">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Description" name="year" value="{{$booking->year}}" disabled>
+                                <label for="floatingInput">Year </label>
+                                @error('year')
+                                    <span class="mt-2  text-danger" >{{$errors->first('year')}}</span>
+                                    @enderror                              </div>
+                        </div>
+                </div>
+                    
+                
+                <div class="col">
+                        <div class="form-group">
+                            <div class="form-floating mb-3">
+                                <input type="file" class="form-control" id="floatingInput" placeholder="Description" name="image" value="{{$booking->image}}">
+                                <label for="floatingInput">Image </label>
+                                @error('image')
+                                    <span class="mt-2  text-danger" >{{$errors->first('image')}}</span>
+                                    @enderror                              </div>
+                        </div>
+                </div>
                 </div>
                 
                 

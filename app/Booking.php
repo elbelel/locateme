@@ -14,12 +14,14 @@ class Booking extends Model
         'duration',
         'year',
         'price',
-        'facilities_id'
+        'facilities_id',
+        'description',
+        'image'
     ];
 
 
     public function facility()
     {
-        return $this->hasMany(Facility::class,'facilities_id');
+        return $this->hasMany(Facility::class,'id');
     }
 }
