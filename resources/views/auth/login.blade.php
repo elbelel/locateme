@@ -58,7 +58,7 @@
                            
                           </div>
                         <div class="text-center my-3">
-                            <a href="{{ route('password.request') }}">Forgot your password?</a>
+                            <p><a href="{{ route('password.request') }}" class="text-black">Forgot your password?</a></p>
                             <a href="/register" class="text-black">Don't have an account? <strong class="text-orange ">Sign Up</strong>
                             </a>
                         </div>

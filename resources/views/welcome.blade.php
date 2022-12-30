@@ -47,7 +47,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <img src={{ asset('/images/football.png') }} />
+                    <img src={{ asset('/images/football.png') }} class="img-fluid" />
                 </div>
                 <div class="col-md-6">
                     <h4 class="my-5">FOOTBALL</h4>
@@ -65,14 +65,14 @@
 
                 </div>
                 <div class="col-md-6">
-                    <img src={{ asset('/images/basketball.png') }} />
+                    <img src={{ asset('/images/basketball.png') }} class="img-fluid" />
                     
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-6">
-                    <img src={{ asset('/images/tenis.png') }} />
+                    <img src={{ asset('/images/tenis.png') }} class="img-fluid" />
                 </div>
                 <div class="col-md-6">
                     <h4 class="my-5">TENNIS</h4>
@@ -97,7 +97,7 @@
     
                     </div>
                     <div class="col-md-6">
-                        <img src={{ asset('/images/health.png') }} />
+                        <img src={{ asset('/images/health.png') }} class="img-fluid" />
                         
                     </div>
                 </div>
@@ -109,10 +109,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <img src={{ asset('/images/price-pic.jpeg') }} width="100%" />
+                    <img src={{ asset('/images/price-pic.jpeg') }} width="100%" class="img-fluid" />
                 </div>
                 <div class="col-md-4">
-                    <img src={{ asset('/images/farm2you.png') }} />
+                    <img src={{ asset('/images/farm2you.png') }} class="img-fluid" />
 
                 </div>
             </div>
@@ -139,13 +139,13 @@
             <span>For Indoor Facilities</span> |
            </div>
 
-           <div class="my-5"> <span> <img src={{ asset('/images/socials/facebook.png') }} />
+           <div class="my-5"> <span> <img src={{ asset('/images/facebook.png') }} />
            </span> 
-           <span> <img src={{ asset('/images/socials/twitter.png') }} />
+           <span> <img src={{ asset('/images/twitter.png') }} />
            </span>
-           <span> <img src={{ asset('/images/socials/instagram.png') }} />
+           <span> <img src={{ asset('/images/instagram.png') }} />
            </span>
-           <span> <img src={{ asset('/images/socials/linkedin.png') }} />
+           <span> <img src={{ asset('/images/linkedin.png') }} />
            </span> </div>
 
            <p>
