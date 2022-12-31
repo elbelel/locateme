@@ -16,7 +16,7 @@
        <div class="">
         <nav class="navbar navbar-expand-lg  bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#"> <img src={{ asset('/images/Logo.png') }} width="100px" height="80px" />  </a>
+              <a class="navbar-brand" href="/"> <img src={{ asset('/images/Logo.png') }} width="100px" height="80px" />  </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -32,24 +32,54 @@
             </div>
           </nav>
 
-          <div class="hero-section">
+          <div class="container-fluid book-welcome-sec">
+            <img src={{ asset('/images/football.png') }} class="img-fluid" />
+
           </div>
        </div>
        <section>
-        <div class="row">
-            <div class="col">
+        <div class="row container my-5">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <div class="text-center m-5">
+                    <h3 class="text-orange">Schedule Your Booking </h3>
+                    <p>Check out the slots available </p>
+                </div>
+
+                <div class="card border-0 shadow">
+                    <div class="card-body p-5">
+                        <p> <strong>Mon - 08 : 00am - 01 : 00pm</strong> </p>
+                        <p> <strong>Tue - 08 : 00am - 01 : 00pm</strong> </p>
+                        <p> <strong>Wed - 08 : 00am - 01 : 00pm</strong> </p>
+                        <p> <strong>Thu - 08 : 00am - 01 : 00pm</strong> </p>
+                        <p> <strong>Fri - 08 : 00am - 01 : 00pm</strong> </p>
+                        <p> <strong>Sat - 08 : 00am - 01 : 00pm</strong> </p>
+
+                        <h4 class="mt-5">Schedule Your Booking</h4>
+
+                        <div class="text-center">
+                            <a href="/book-date">  
+                                <button type="button" class="btn bg-orange mx-3 px-5 mt-5">Book Now</button>
+                            </a>
+                            
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
+            <div class="col-4"></div>
+
         </div>
        </section>
        <section>
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
-                    <img src={{ asset('/images/price-pic.jpeg') }} width="100%" />
+                    <img src={{ asset('/images/price-pic.jpeg') }} width="100%" class="img-fluid" />
                 </div>
                 <div class="col-md-4">
-                    <img src={{ asset('/images/farm2you.png') }} />
+                    <img src={{ asset('/images/farm2you.png') }} class="img-fluid" />
 
                 </div>
             </div>
@@ -76,13 +106,13 @@
             <span>For Indoor Facilities</span> |
            </div>
 
-           <div class="my-5"> <span> <img src={{ asset('/images/socials/facebook.png') }} />
+           <div class="my-5"> <span> <img src={{ asset('/images/facebook.png') }} />
            </span> 
-           <span> <img src={{ asset('/images/socials/twitter.png') }} />
+           <span> <img src={{ asset('/images/twitter.png') }} />
            </span>
-           <span> <img src={{ asset('/images/socials/instagram.png') }} />
+           <span> <img src={{ asset('/images/instagram.png') }} />
            </span>
-           <span> <img src={{ asset('/images/socials/linkedin.png') }} />
+           <span> <img src={{ asset('/images/linkedin.png') }} />
            </span> </div>
 
            <p>

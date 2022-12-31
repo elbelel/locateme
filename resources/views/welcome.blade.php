@@ -19,7 +19,7 @@
        <div class="">
         <nav class="navbar navbar-expand-lg  bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#"> <img src={{ asset('/images/Logo.png') }} width="100px" height="80px" />  </a>
+              <a class="navbar-brand" href="/"> <img src={{ asset('/images/Logo.png') }} width="100px" height="80px" />  </a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -52,7 +52,9 @@
                 <div class="col-md-6">
                     <h4 class="my-5">FOOTBALL</h4>
                     <p>Football is the world’s most popular ball game in numbers of participants and spectators. Simple in its principal rules and essential equipment, the sport can be played almost anywhere, from official football playing fields (pitches) to gymnasiums, streets, school playgrounds, parks, or beaches.</p>
-                    <button type="button" class="btn btn-danger my-5 px-5">COOMING SOON !</button>
+                    <a href="/book">
+                        <button type="button" class="btn btn-danger my-5 px-5">Book Now</button>
+                    </a>
 
                 </div>
             </div>
@@ -61,7 +63,9 @@
                 <div class="col-md-6">
                     <h4 class="my-5">BASKETBALL</h4>
                     <p>basketball is competitively a winter sport, it is played on a 12-month basis—on summer playgrounds, in municipal, industrial, and church halls, in school yards and family driveways, and in summer camps—often on an informal basis between two or more contestants. Many grammar schools, youth groups.</p>
-                    <button type="button" class="btn btn-danger my-5 px-5">COOMING SOON !</button>
+                    <a href="/book">
+                        <button type="button" class="btn btn-danger my-5 px-5">Book Now</button>
+                    </a>
 
                 </div>
                 <div class="col-md-6">
@@ -77,7 +81,9 @@
                 <div class="col-md-6">
                     <h4 class="my-5">TENNIS</h4>
                     <p>Tennis originally was known as lawn tennis, and formally still is in Britain, because it was played on grass courts by Victorian gentlemen and ladies. It is now played on a variety of surfaces. The origins of the game can be traced to a 12th–13th-century French handball game called jeu de paume</p>
-                    <button type="button" class="btn btn-danger my-5 px-5">COOMING SOON !</button>
+                    <a href="/book">
+                        <button type="button" class="btn btn-danger my-5 px-5">Book Now</button>
+                    </a>
 
                 </div>
             </div>

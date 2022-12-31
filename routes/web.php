@@ -82,5 +82,21 @@ require __DIR__.'/auth.php';
 
 
 Route::get('/book', function () {
-    return view('book');
+    return view('client-book/book');
+});
+
+Route::get('/book-date', function () {
+    return view('client-book/date');
+});
+
+Route::get('/book-confirm', function () {
+    return view('client-book/confirm');
+});
+
+Route::get('/book-payment-type', function () {
+    return view('client-book/payment');
+});
+
+Route::get('/book-payment-response', function () {
+    return view('client-book/feedback');
 });
