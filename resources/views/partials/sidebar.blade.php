@@ -43,6 +43,13 @@ Home          </div>
           Reports and Analytics
           </a>
 
+          <a
+          href="client-booking"
+        >
+        <img src={{ asset('/images/icons/users.png') }} class="me-3" />
+        Clients Bookings
+        </a>
+
           {{-- <a
             to="/settings"
           >

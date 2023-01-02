@@ -76,6 +76,10 @@ Route::post('/users/update',[UserController::class, 'update'])->name('userupdate
 });
 
 
+Route::get('/client-booking', function () {
+    return view('client-bookings/index');
+});
+
 
 
 require __DIR__.'/auth.php';
