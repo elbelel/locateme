@@ -54,6 +54,10 @@ Route::post('/book-payment-type',[BookingTimeSlotController::class, 'update'])->
 });
         
 
+Route::get('/client-booking', function () {
+    return view('client-bookings/index');
+});
+
 
 
 require __DIR__.'/auth.php';
