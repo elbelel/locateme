@@ -35,11 +35,11 @@
                                 <strong>{{ $message }}</strong>
                         </div>
                         @endif
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('bookingsconfirm') }}">
                         @csrf
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="bookingID" name="bookingId">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="bookingID" name="bookingId"  value="{{$details->booking->session_id}}" disabled>
                                 <label for="floatingInput">Booking ID </label>
                                 @error('bookingId')
                                     <span class="mt-2  text-danger" >{{$errors->first('bookingId')}}</span>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="facility" name="facility">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="facility" name="facility" value="{{$details->booking->facility->name}}" disabled>
                                 <label for="floatingInput">Facility </label>
                                 @error('facility')
                                     <span class="mt-2  text-danger" >{{$errors->first('facility')}}</span>
@@ -57,7 +57,7 @@
                         </div>
                         <div class="form-group">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="floatingInput" placeholder="time slot" name="time">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="time slot" name="time"value="{{$details->timeslot->start_date_time .'-'. $details->timeslot->end_date_time}}" disabled>
                                 <label for="floatingInput">Time Slot </label>
                                 @error('time')
                                     <span class="mt-2  text-danger" >{{$errors->first('time')}}</span>
@@ -66,7 +66,7 @@
                         </div>
                             <div class="form-group">
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="phone number" name="phone">
+                                    <input type="email" class="form-control" id="floatingInput" placeholder="phone number" name="phone" value="{{$details->user->phone_number}}" disabled>
                                     <label for="floatingInput">Phone </label>
                                     @error('phone')
                                         <span class="mt-2  text-danger" >{{$errors->first('phone')}}</span>
@@ -75,7 +75,9 @@
                             </div>
                             <div class="form-group">
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="id" value="{{$details->id}}" hidden>
+
+                                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" value="{{$details->user->email}}" disabled>
                                     <label for="floatingInput">Email </label>
                                     @error('email')
                                         <span class="mt-2  text-danger" >{{$errors->first('email')}}</span>
@@ -91,12 +93,12 @@
                             </div>
     
                             
-                            <a href="/book-payment-typ" class="d-grid gap-2 mt-5">
+                            <!-- <a href="/book-payment-typ" class="d-grid gap-2 mt-5"> -->
 
 
-                                <button type="submit" class="btn bg-orange btn-lg">Proceed</button>
+                                <button type="submit" class="btn bg-orange btn-lg d-grid gap-2 mt-5">Proceed</button>
                                
-                              </a>
+                              <!-- </a> -->
                             
                             
                           </form>

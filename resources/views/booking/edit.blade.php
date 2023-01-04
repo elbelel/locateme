@@ -28,7 +28,7 @@
                             <select class="form-select" aria-label="Default select example" name="facility">
                                 <option selected>Please select facility</option>
                                 @foreach($facilities as $facility)
-                                <option value="{{ $facility->id }}" selected="{{$booking->facilities_id == $facility->id ? 'true':'false'}}">{{ $facility->name }}</option> 
+                                <option value="{{ $facility->id }}" {{$booking->facilities_id == $facility->id ? 'selected':''}}>{{ $facility->name }}</option> 
                                 @endForeach
                                   </select>                                
                                   @error('facility')

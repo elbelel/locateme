@@ -12,6 +12,8 @@
 </head>
 <body>
     @include('partials.sidebar')
+    @include('sweetalert::alert')
+
     <div class="">
     </div>
 

@@ -29,7 +29,7 @@
                       <tr>
                         <th scope="row"></th>
                         <th >{{$user->name}}</th>
-                        <td>{{$user->first_name}}{{ $user->last_name}}</td>
+                        <td>{{$user->first_name .' '.$user->last_name }}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->phone_number}}</td>
                         <td>Active</td>

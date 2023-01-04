@@ -24,9 +24,13 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">              
                 </ul>
                 <div class="d-flex" >
+                @if(Auth::check())
+                    <a href="/dashboard">  <button type="button" class="btn btn-danger mx-4 px-5">Dashbaord</button></a>
+
+                    @else
                     <button type="button" class="btn btn-danger mx-3 px-5">Bookings</button>
                     <a href="/login">  <button type="button" class="btn btn-outline-danger mx-4 px-5">Log in</button></a>
-
+                    @endif
                 </div>
               </div>
             </div>
@@ -48,17 +52,17 @@
 
                 <div class="card border-0 shadow">
                     <div class="card-body p-5">
-                        <p> <strong>Mon - 08 : 00am - 01 : 00pm</strong> </p>
-                        <p> <strong>Tue - 08 : 00am - 01 : 00pm</strong> </p>
-                        <p> <strong>Wed - 08 : 00am - 01 : 00pm</strong> </p>
-                        <p> <strong>Thu - 08 : 00am - 01 : 00pm</strong> </p>
-                        <p> <strong>Fri - 08 : 00am - 01 : 00pm</strong> </p>
-                        <p> <strong>Sat - 08 : 00am - 01 : 00pm</strong> </p>
+                        <p> <strong>Mon - 08 : 00am - 06 : 00pm</strong> </p>
+                        <p> <strong>Tue - 08 : 00am - 06 : 00pm</strong> </p>
+                        <p> <strong>Wed - 08 : 00am - 06 : 00pm</strong> </p>
+                        <p> <strong>Thu - 08 : 00am - 06 : 00pm</strong> </p>
+                        <p> <strong>Fri - 08 : 00am - 06 : 00pm</strong> </p>
+                        <p> <strong>Sat - 08 : 00am - 06 : 00pm</strong> </p>
 
                         <h4 class="mt-5">Schedule Your Booking</h4>
 
                         <div class="text-center">
-                            <a href="/book-date">  
+                            <a href="/book-date/{{$id}}">  
                                 <button type="button" class="btn bg-orange mx-3 px-5 mt-5">Book Now</button>
                             </a>
                             

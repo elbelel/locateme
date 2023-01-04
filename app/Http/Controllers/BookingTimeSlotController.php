@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\BookingTimeSlot;
 use Illuminate\Http\Request;
+use App\TimeSlot;
+use Illuminate\Support\Facades\Auth;
+
 
 class BookingTimeSlotController extends Controller
 {
@@ -12,9 +15,10 @@ class BookingTimeSlotController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
+        return view('client-book/book',['id'=>$id]);
     }
 
     /**
@@ -22,9 +26,11 @@ class BookingTimeSlotController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
+        $times = TimeSlot::all();
+        return view('client-book/date',['times'=>$times,'id'=>$id]);
     }
 
     /**
@@ -36,6 +42,19 @@ class BookingTimeSlotController extends Controller
     public function store(Request $request)
     {
         //
+        // dd($request);
+        $user = BookingTimeSlot::create([
+            'bookings_id'=> $request->id,
+            'time_slots_id'=>$request->slot,
+            'date'=>$request->date,
+            'users_id'=>Auth::id(),
+            'status'=>0
+        ]);
+
+        // dd($user);
+
+        return view('client-book/confirm',['details'=>$user]);
+        
     }
 
     /**
@@ -55,9 +74,12 @@ class BookingTimeSlotController extends Controller
      * @param  \App\BookingTimeSlot  $bookingTimeSlot
      * @return \Illuminate\Http\Response
      */
-    public function edit(BookingTimeSlot $bookingTimeSlot)
+    public function edit(BookingTimeSlot $bookingTimeSlot, Request $request, $id)
     {
         //
+        $slot = BookingTimeSlot::where('date',$request->date)->get();
+
+        return $slot;
     }
 
     /**
@@ -70,6 +92,8 @@ class BookingTimeSlotController extends Controller
     public function update(Request $request, BookingTimeSlot $bookingTimeSlot)
     {
         //
+        // dd($request);
+        return view('client-book/payment');
     }
 
     /**

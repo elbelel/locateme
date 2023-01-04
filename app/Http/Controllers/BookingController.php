@@ -6,6 +6,8 @@ use App\Booking;
 use App\Facility;
 
 use Illuminate\Http\Request;
+use Alert;
+
 
 class BookingController extends Controller
 {
@@ -18,6 +20,8 @@ class BookingController extends Controller
     {
         //
         $bookings = Booking::all();
+        // Alert::success('Success Title', 'Success Message');
+
 
         return view('booking/index',['bookings'=>$bookings]);
     }
@@ -127,8 +131,8 @@ class BookingController extends Controller
         }
 
         $booking = Booking::find($request->id);
-            $booking->duration = $request->duration;
-            $booking->year=$request->year;
+            // $booking->duration = $request->duration;
+            // $booking->year=$request->year;
             $booking->description=$request->description;
             $booking->price=$request->price;
             $booking->facilities_id=$request->facility;
@@ -151,5 +155,10 @@ class BookingController extends Controller
     public function destroy(Booking $booking)
     {
         //
+    }
+
+    public function dashboard (Request $request){
+        $bookings = Booking::all();
+        return view ('welcome',['bookings'=>$bookings]);
     }
 }

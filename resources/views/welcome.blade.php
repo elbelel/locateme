@@ -27,9 +27,13 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">              
                 </ul>
                 <div class="d-flex" >
+                    @if(Auth::check())
+                    <a href="/dashboard">  <button type="button" class="btn btn-danger mx-4 px-5">Dashbaord</button></a>
+
+                    @else
                     <button type="button" class="btn btn-danger mx-3 px-5">Bookings</button>
                     <a href="/login">  <button type="button" class="btn btn-outline-danger mx-4 px-5">Log in</button></a>
-
+                    @endif
                 </div>
               </div>
             </div>
@@ -45,21 +49,24 @@
                 
         </div>
         <div class="container">
+            @foreach($bookings as $booking)
             <div class="row">
                 <div class="col-md-6">
-                    <img src={{ asset('/images/football.png') }} class="img-fluid" />
+                    <img src={{ url('public/Image/'.$booking->image) }} class="img-fluid" />
                 </div>
                 <div class="col-md-6">
-                    <h4 class="my-5">FOOTBALL</h4>
-                    <p>Football is the world’s most popular ball game in numbers of participants and spectators. Simple in its principal rules and essential equipment, the sport can be played almost anywhere, from official football playing fields (pitches) to gymnasiums, streets, school playgrounds, parks, or beaches.</p>
-                    <a href="/book">
+                    <h4 class="my-5">{{$booking->facility->name}}</h4>
+                    <!-- <p>Football is the world’s most popular ball game in numbers of participants and spectators. Simple in its principal rules and essential equipment, the sport can be played almost anywhere, from official football playing fields (pitches) to gymnasiums, streets, school playgrounds, parks, or beaches.</p> -->
+                    <p>{{$booking->description}}</p>
+
+                    <a href="/book/{{$booking->id}}">
                         <button type="button" class="btn btn-danger my-5 px-5">Book Now</button>
                     </a>
 
                 </div>
             </div>
-
-            <div class="row my-5">
+            @endforeach
+            <!-- <div class="row my-5">
                 <div class="col-md-6">
                     <h4 class="my-5">BASKETBALL</h4>
                     <p>basketball is competitively a winter sport, it is played on a 12-month basis—on summer playgrounds, in municipal, industrial, and church halls, in school yards and family driveways, and in summer camps—often on an informal basis between two or more contestants. Many grammar schools, youth groups.</p>
@@ -72,9 +79,9 @@
                     <img src={{ asset('/images/basketball.png') }} class="img-fluid" />
                     
                 </div>
-            </div>
+            </div> -->
 
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-md-6">
                     <img src={{ asset('/images/tenis.png') }} class="img-fluid" />
                 </div>
@@ -86,7 +93,7 @@
                     </a>
 
                 </div>
-            </div>
+            </div> -->
         </div>
        </section>
 

@@ -15,7 +15,7 @@
             
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle ms-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Admin <span><img src={{ asset('/images/icons/user.png') }} width="30" /></span>
+              {{ Auth::user()->name }} <span><img src={{ asset('/images/icons/user.png') }} width="30" /></span>
               </a>
               <ul class="dropdown-menu">
                 {{-- <li><a class="dropdown-item" href="{{route('profile.edit')}}"> <small>Profile</small> </a></li> --}}
