@@ -33,6 +33,7 @@
     <title>Select booking date</title>
 </head>
 <body>
+@include('sweetalert::alert')
 
     <div class="container-fluid">
     <form method="POST" action="{{ route('userbookings') }}">

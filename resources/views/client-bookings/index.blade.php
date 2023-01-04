@@ -27,25 +27,25 @@
                       </tr>
                     </thead>
                     <tbody>
-                    {{-- @foreach($bookings  as $booking)
+                   @foreach($bookings  as $booking)
                       <tr>
                         <th scope="row">1</th>
-                        <th >{{$booking->session_id}}</th>
-                        <td>{{$booking->duration}}</td>
-                        <td>{{$booking->facility->name}}</td>
-                        <!-- <td>{{$booking->season_id}}</td> -->
+                        <th >{{$booking->booking->session_id}}</th>
+                        <td>{{$booking->booking->duration}}</td>
+                        <td>{{$booking->booking->facility->name}}</td>
                         <td>
-                          <img src="{{ url('public/Image/'.$booking->image) }}"
-                    style="height: 100px; width: 150px;">
+                         {{$booking->timeslot->start_date_time .'-'. $booking->timeslot->end_date_time}}
                         </td>
-                        <td>  {{ \Carbon\Carbon::parse($booking->created_at)->isoFormat('MMM Do YYYY')}}</td>
-                        <td>N{{$booking->price}}</td>
-                        <td>            <a href="/booking/edit/{{$booking->id}}">
-                            <button type="button" class="btn btn-info btn-sm">Edit</button>
-                        </a>
+                        <td>  {{ \Carbon\Carbon::parse($booking->date)->isoFormat('MMM Do YYYY')}}</td>
+                        <td>N{{$booking->booking->price}}</td>
+                        <td>            
+                          {{$booking->user->phone_number}}
+                        </td>
+                        <td>
+                          {{$booking->user->email}}
                         </td>
                       </tr>
-                      @endforeach --}}
+                      @endforeach 
                     </tbody>
                   </table>
             </div>

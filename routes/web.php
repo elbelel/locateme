@@ -50,13 +50,14 @@ Route::get('/book-date/{id}',[BookingTimeSlotController::class, 'create'])->name
 Route::post('/book-confirm',[BookingTimeSlotController::class, 'store'])->name('userbookings');
 Route::post('/check-slot/{id}',[BookingTimeSlotController::class, 'edit'])->name('checkbookings');
 Route::post('/book-payment-type',[BookingTimeSlotController::class, 'update'])->name('bookingsconfirm');
+Route::get('/client-booking',[BookingTimeSlotController::class, 'show'])->name('showbookings');
 
 });
         
 
-Route::get('/client-booking', function () {
-    return view('client-bookings/index');
-});
+// Route::get('/client-booking', function () {
+//     return view('client-bookings/index');
+// });
 
 
 

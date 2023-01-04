@@ -6,6 +6,7 @@ use App\BookingTimeSlot;
 use Illuminate\Http\Request;
 use App\TimeSlot;
 use Illuminate\Support\Facades\Auth;
+use Alert;
 
 
 class BookingTimeSlotController extends Controller
@@ -42,7 +43,16 @@ class BookingTimeSlotController extends Controller
     public function store(Request $request)
     {
         //
-        // dd($request);
+        
+        $slot = BookingTimeSlot::where(['date'=>$request->date,'time_slots_id'=>$request->slot])->get();
+        // dd($slot);
+
+        if(isset($slot)){
+        $times = TimeSlot::all();
+        Alert::error('Slot is taken', 'Error Message');
+        return view('client-book/date',['times'=>$times,'id'=>$request->id]);
+        }else{
+
         $user = BookingTimeSlot::create([
             'bookings_id'=> $request->id,
             'time_slots_id'=>$request->slot,
@@ -51,10 +61,9 @@ class BookingTimeSlotController extends Controller
             'status'=>0
         ]);
 
-        // dd($user);
 
         return view('client-book/confirm',['details'=>$user]);
-        
+    }
     }
 
     /**
@@ -66,6 +75,17 @@ class BookingTimeSlotController extends Controller
     public function show(BookingTimeSlot $bookingTimeSlot)
     {
         //
+
+        if(Auth::user()->role == 0){
+            $bookings = BookingTimeSlot::all();
+            return view('client-bookings/index',['bookings'=>$bookings]);
+        }else{
+
+            $bookings = BookingTimeSlot::where('users_id',Auth::id())->get();
+
+            return view('client-bookings/index',['bookings'=>$bookings]);
+
+        }
     }
 
     /**

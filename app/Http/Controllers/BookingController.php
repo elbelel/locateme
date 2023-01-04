@@ -20,7 +20,6 @@ class BookingController extends Controller
     {
         //
         $bookings = Booking::all();
-        // Alert::success('Success Title', 'Success Message');
 
 
         return view('booking/index',['bookings'=>$bookings]);
@@ -48,6 +47,15 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         
+        $slot = Booking::where('facilities_id',$request->facility)->get();
+        if(isset($slot)){
+            $facilities = Facility::all();
+            Alert::error('Booking with Facility already Exist', 'Success Message');
+
+            return view('booking/create',['facilities'=>$facilities]);
+    
+        }else{
+
         $request->validate([
             'price' => ['required', 'integer'],
             'facility' => ['required', 'integer'],
@@ -73,9 +81,10 @@ class BookingController extends Controller
         ]);
 
         $bookings = Booking::all();
+        Alert::success('Successfully created Booking', 'Success Message');
 
         return view('booking/index',['bookings'=>$bookings]);
-        
+    }
     }
 
     /**

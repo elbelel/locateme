@@ -20,14 +20,16 @@ Home          </div>
           Dashboard
         </a>
 
-        
+        @if(Auth::user()->role ==0)
+
           <a
             href="/booking"
           >
           <img src={{ asset('/images/icons/booking.png') }} class="me-3" />
             Bookings
           </a>
-
+          @endif
+    @if(Auth::user()->role ==0)
           <a
             href="/users"
           >
@@ -35,7 +37,7 @@ Home          </div>
 
             User Management
           </a>
-
+@endif
           <a
             href="/reports"
           >
