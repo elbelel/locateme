@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->string('price');
+            $table->string("lat");
+            $table->string("long");
             $table->integer('shops_id');
         });
     }

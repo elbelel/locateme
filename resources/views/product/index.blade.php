@@ -20,6 +20,8 @@
                         <th scope="col">Shop</th>
                         <th scope="col">Image</th>
                         <th scope="col">Price</th>
+                        <th scope="col">latitude</th>
+                        <th scope="col">Longitude</th>
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
@@ -34,6 +36,8 @@
                     style="height: 100px; width: 150px;">
                         </td>
                         <td>N{{$product->price}}</td>
+                        <td>{{$product->lat}}</td>
+                        <td>{{$product->long}}</td>
                         <td>            <a href="/product/edit/{{$product->id}}">
                             <button type="button" class="btn btn-info btn-sm">Edit</button>
                         </a>

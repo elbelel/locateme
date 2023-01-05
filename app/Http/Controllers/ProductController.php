@@ -50,6 +50,8 @@ class ProductController extends Controller
         $request->validate([
             'price' => ['required', 'integer'],
             'shop' => ['required', 'integer'],
+            'long' => ['required', 'string'],
+            'lat' => ['required', 'string'],
         ]);
 
         $data = '';
@@ -65,6 +67,8 @@ class ProductController extends Controller
             'name'=>$request->name,
             'description'=>$request->description,
             'price'=>$request->price,
+            'long'=>$request->long,
+            'lat'=>$request->lat,
             'image'=>$data,
             'shops_id'=>$request->shop
         ]);
@@ -81,9 +85,12 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Product $product,$id)
     {
         //
+        $product = Product::find($id);
+        return view('product/product-details',['product'=>$product]);
+
     }
 
     /**
@@ -114,6 +121,8 @@ class ProductController extends Controller
         $request->validate([
             'price' => ['required', 'integer'],
             'shop' => ['required', 'integer'],
+            'long' => ['required', 'string'],
+            'lat' => ['required', 'string'],
         ]);
         
         $data = '';
@@ -129,6 +138,8 @@ class ProductController extends Controller
             $product->name=$request->name;
             $product->description=$request->description;
             $product->price=$request->price;
+            $product->lat=$request->lat;
+            $product->long=$request->long;
             $product->shops_id=$request->shop;
 
             if($data !== ''){
@@ -154,18 +165,7 @@ class ProductController extends Controller
 
     public function dashboard (Request $request){
         $shops = Shop::all();
-        // $location = GeoIP::getLocation();
-
-        // dd(\Request::getClientIp(true));
-    //     $dLat = deg2rad($new_ latitude-$old_latitude);
-    //     $dLon = deg2rad($new_longitude-$old_longitude);
-	//     $radius = 6371;
-    //     $a = sin($dLat/2) * sin($dLat/2) +
-    //           cos(deg2rad($old_latitude)) * cos(deg2rad($new_ latitude)) *
-    //           sin($dLon/2) * sin($dLon/2);
-    //     $c = 2 * atan2(sqrt($a), sqrt(1-$a));
-    //    $d = $radius * $c; 
-
-        return view ('welcome',['shops'=>$shops]);
+        $products = Product::all();
+        return view ('welcome',['shops'=>$shops,'products'=>$products]);
     }
 }

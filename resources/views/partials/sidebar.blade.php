@@ -13,6 +13,10 @@
             Home          
           </div>
         </div>
+        <a href="/">
+          <img src={{ asset('/images/Logo.svg') }} width="100px" />
+          </a>  
+          
           <a
             href="/product"
           >

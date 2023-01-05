@@ -83,20 +83,7 @@
             <span class="b-text">Discover the services available around you</span>
         </div>
         <div class="container">
-            <div class="row">
-            @foreach($shops as $shop)
-                <div class="card m-5" style="width: 18rem;">
-                    <img src={{ url('public/Image/'.$shop->image) }} class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-text">{{$shop->name}}</h5>
-                        </div>
-                </div>
-            @endforeach
-            <!-- <div class="card m-5" style="width: 18rem;">
-                <img src={{ url('images/flymen-divoora.png') }} class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-text">Jumia</h5>
-                </div> -->
+            <div class="row" id="shopping">
             </div>
             </div>
         </div>
@@ -108,19 +95,8 @@
             <span class="b-text">Discover some of the cool products close to you</span>
 
             <div class="container">
-                <div class="row my-5">
-                    <div class="card" style="width: 18rem;">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/belt.webp" class="card-img-top" alt="...">        
-                        <div class="card-body">
-                            <a href="" class="text-reset">
-                            <h5 class="card-title mb-3">Product name</h5>
-                            </a>
-                            <a href="" class="text-reset">
-                            <p>Category</p>
-                            </a>
-                            <h6 class="mb-3">$61.99</h6>
-                        </div>
-                    </div>
+                <div class="row my-5" id="productsshow">
+                    
                 </div>
             </div>
                 
@@ -160,24 +136,11 @@
 
        <footer class="bg-dark text-white p-5 mt-5 text-center">
         <div><span>Dashboard</span> |
-            <span>Solution</span> |
-            <span>Event booking</span> |
             <span>Help Center</span> |
             <span>Blog</span> |
-            <span>careers</span> |
             <span>About Us</span>
         
         </div>
-           <div>
-            <span>For football association</span> |
-            <span>For schools</span> |
-            <span>For councils</span> |
-            <span>For clubs</span> |
-            <span>For universities</span> |
-            <span>For Leisure Centres</span> |
-            <span>For Indoor Facilities</span> |
-           </div>
-
            <div class="my-5"> <span> <img src={{ asset('/images/facebook.png') }} />
            </span> 
            <span> <img src={{ asset('/images/twitter.png') }} />
@@ -198,13 +161,33 @@
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script type="text/javascript">
     const shop = @json($shops);
+    const product = @json($products);
 
-     $(document).ready(function () {
-        const new_long = 9.0958622
-        const new_lat = 7.4952049
+    let htmlCode = ``;
+    let htmlCodeProd=``;
+
+$(document).ready(function () {
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+}else{
+    htmlCode =`<h5 class="card-text mt-5">LOCATION IS NOT TURNED ON</h5>`
+    htmlCodeProd =`<h5 class="card-text mt-5">LOCATION IS NOT TURNED ON</h5>`
+
+const shoppingCards = document.querySelector("#shopping");
+const ProductCards = document.querySelector("#productsshow");
+
+shoppingCards.innerHTML = htmlCode;
+ProductCards.innerHTML = htmlCodeProd;
+}
+
+function showPosition(position) {
+    console.log(position)
+    const new_longitude=  position.coords.longitude;
+	const new_latitude= position.coords.latitude;
+
     for(let i = 0; i<shop.length;i++){
-    const new_longitude=  9.0958622;
-	const new_latitude= 7.4952049;
 	const old_longitude=shop[i].long
 	const old_latitude= shop[i].lat
    	const dLat = toRad(new_latitude-old_latitude);
@@ -214,24 +197,89 @@
         Math.cos(toRad(old_latitude)) * Math.cos(toRad(new_latitude)) *
               Math.sin(dLon/2) * Math.sin(dLon/2);
         let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-       let d = radius * c; // Distance in km
-
-       console.log(d)
+       let d = radius * c;
+        console.log("h1",d)
+       if(d < 50){
+        htmlCode =
+    htmlCode + `
+    <div class="card m-5" style="width: 18rem;">
+                    <img src="public/Image/${shop[i].image}" class="card-img-top" alt="..."/>
+                        <div class="card-body">
+                            <h5 class="card-text">${shop[i].name}</h5>
+                        </div>
+                </div>
+    `
+       }
     }
+
+    for(let j = 0; j<product.length;j++){
+	const old_longitude=product[j].long
+	const old_latitude= product[j].lat
+   	const dLat = toRad(new_latitude-old_latitude);
+    const dLon = toRad(new_longitude-old_longitude);
+	let radius = 6371;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(toRad(old_latitude)) * Math.cos(toRad(new_latitude)) *
+              Math.sin(dLon/2) * Math.sin(dLon/2);
+        let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+       let d = radius * c; 
+       console.log("h2",d)
+
+       if(d < 50){
+        htmlCodeProd =
+        htmlCodeProd + `
+        
+        <div class="card m-3" style="width: 18rem;">
+        <a href="/product-details/${product[j].id}">
+                            <img src="public/Image/${product[j].image}" class="card-img-top" alt="..."/>        
+                        <div class="card-body">
+                            <a href="" class="text-reset">
+                            <h5 class="card-title mb-3">${product[j].name}</h5>
+                            </a>
+                            <a href="" class="text-reset">
+                            <p>${product[j].description}</p>
+                            </a>
+                            <h6 class="mb-3">N${product[j].price}</h6>
+                        </div>
+                        </a>
+                    </div>
+       
+    `
+       }
+    }
+
+
+
+    if(htmlCode ==""){
+        htmlCode =
+    htmlCode + `
+    <h5 class="card-text mt-5">NO SHOPS IN YOUR CURRENT LOCATION</h5>
+    `
+    }
+    if(htmlCodeProd ==""){
+        htmlCodeProd =
+        htmlCodeProd + `
+    <h5 class="card-text mt-5">NO Products IN YOUR CURRENT LOCATION</h5>
+    `
+    }
+
+    const shoppingCards = document.querySelector("#shopping");
+    const ProductCards = document.querySelector("#productsshow");
+
+    shoppingCards.innerHTML = htmlCode;
+    ProductCards.innerHTML = htmlCodeProd;
 
     function toRad($Value) 
 {
     return $Value * Math.PI / 180;
 }
+}
+ 
+})
 
-//         if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(showPosition);
-//         } 
 
-//         function showPosition(position) {
-//             console.log(position)
-// }
-     })
+
+
 </script>
     </body>
 </html>

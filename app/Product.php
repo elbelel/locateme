@@ -14,7 +14,9 @@ class Product extends Model
         'price',
         'shops_id',
         'description',
-        'image'
+        'image',
+        'lat',
+        'long',
     ];
 
 

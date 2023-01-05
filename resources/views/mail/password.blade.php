@@ -1,1 +1,0 @@
-<p>The password is {{$password}}</p>

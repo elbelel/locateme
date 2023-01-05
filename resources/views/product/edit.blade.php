@@ -88,7 +88,30 @@
                         </div>
                         
                     </div>
-
+                    <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="latitude" name="lat" value="{{$shop->lat}}">
+                                <label for="floatingInput">Latitude </label>
+                                @error('lat')
+                                    <span class="mt-2  text-danger" >{{$errors->first('lat')}}</span>
+                                    @enderror                              </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="Longitude" name="long" value="{{$shop->long}}">
+                                <label for="floatingInput">Longitude </label>
+                                @error('long')
+                                    <span class="mt-2  text-danger" >{{$errors->first('long')}}</span>
+                                    @enderror                              </div>
+                        </div>
+                    </div>
+                
+                        
+                    </div>
                 <div class="row">
                 <div class="row">
                     
