@@ -3,11 +3,89 @@ a {
 }
 
 .hero-section {
-    background-image: url("../images/main-bg.png");
+    background-image: url("../images/background-header.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+    position: relative;
+    max-height: 780px
+}
+.seconds-section {
+    background-image: url("../images/lugano-header.png");
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    height: 30vh;
+}
 
-    height: 100vh;
+.fly-man{
+    z-index: 500;
+    height: 45vw;
+    max-height: 550px;
+}
+.cloud{
+    position: absolute;
+    top: 20%;
+    right: 0;
+}
+.h-t1{
+    font-size: calc(1rem + 2vw);
+    font-family: Gilroy,sans-serif,ExtraBold;
+    font-weight: 800;
+    letter-spacing: -.015em;
+    margin-top: 4rem;
+    margin-left: 5rem;
+}
+
+.b-text{
+    font-size: calc(0.5rem + 1vw);
+    font-family: Gilroy,sans-serif,ExtraBold;
+    letter-spacing: -.015em;
+    margin-top: 4rem;
+    margin-left: 5rem;
+}
+.h-t2{
+    color: #d00;
+    font-size: calc(1rem + 2vw);
+    font-family: Gilroy,sans-serif,ExtraBold;
+    font-weight: 800;
+    letter-spacing: -.015em;
+    margin-top: 4rem;
+    margin-left: 5rem;
+}
+
+.header-content{
+    margin-right: 0;
+    margin-top: 7vw;
+    max-height: 780px;
+    z-index: 500;
+}
+
+.h-form{
+    max-width: 500px;
+    background-color: #fff;
+    padding: 1rem;
+    margin-top: 4rem;
+    margin-left: 5rem;
+
+    border-radius: 8px;
+    box-shadow: 0 3px 20px rgb(0 0 0 / 16%);
+}
+
+.h-input{
+    border-radius: 4px;
+    background-color: #fff;    margin-top: -0.25em;
+    display: block;
+    position: relative;
+    flex: auto;
+    min-width: 0;
+    height: 40px;
+    width: 100%;
+}
+
+.h-bt{
+    background-color: #e20613;
 }
 
 .login-card {
@@ -30,6 +108,19 @@ a {
 
 .real {
     display: flex;
+}
+.card{
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 14px 80px 18px 36px;
+  cursor: pointer;
+}
+
+.card:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
 }
 .sidebar {
     background: #363740;

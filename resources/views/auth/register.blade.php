@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{asset('images/favi.ico')}}">
+
     <title>Register</title>
     <link href="../css/app.css"  rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -15,7 +17,7 @@
                 <div class="card mt-5">
                     <div class="card-body">
                         <div class="">
-                            <a href="/"><img src={{ asset('/images/Logo.png') }} width="50px" /></a>
+                            <a href="/"><img src={{ asset('/images/Logo.svg') }} width="150px" /></a>
                             <p class="my-4 h4">Get started with your  <br/>account.</p>
     
                         </div>
@@ -39,16 +41,6 @@
                                     @enderror                                  
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="floatingInput" placeholder="team name" name="team_name">
-                                    <label for="floatingInput">Team Name </label>
-                                    @error('team_name')
-                                    <span class="mt-2  text-danger" >{{$errors->first('team_name')}}</span>
-                                    @enderror                                  
-                                </div>
-                            </div>
-
                             <div class="form-group">
                                 <div class="form-floating mb-3">
                                     <input type="text" class="form-control" id="floatingInput" placeholder="phone" name="phone_number">
@@ -83,16 +75,9 @@
                                     <span :messages="$errors->get('password_confirmation')" class="mt-2" ></span>
                                   </div>
                              </div>
-                            <!-- <div class="mb-3 form-check mt-3">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                              <label class="form-check-label" for="exampleCheck1">By ticking, you agree to our terms and 
-                                conditions</label>
-                              
-                            </div> -->
-    
                             
                             <div class="d-grid gap-2 mt-5">
-                                <button type="submit" class="btn bg-orange btn-lg">Register</button>
+                                <button type="submit" class="btn bg-danger btn-lg text-white">Register</button>
                                
                               </div>
                             <div class="text-center my-3">
@@ -106,11 +91,7 @@
                 </div>
             </div>
             <div class="col d-flex justify-content-center "> 
-            <div class="card border-0 register-card">
-            <div class="card-body">
-                <img src={{ asset('/images/Logo.png') }}  width="250px" />    
-            </div>    
-            </div>    
+            
             </div>
         </div>
     </div>

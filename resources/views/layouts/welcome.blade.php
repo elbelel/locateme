@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Welcome</title>
-        <link rel="shortcut icon" href="{{asset('images/favi.png')}}">
+        <link rel="shortcut icon" href="{{asset('images/favi.ico')}}">
 
         <!-- Fonts -->
         <link href="../css/app.css" {{ asset('/css/app.css') }}  rel="stylesheet"/>

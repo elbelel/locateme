@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="{{asset('images/favi.ico')}}">
+
     <title>Login</title>
     <link href="../css/app.css"  rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
@@ -16,7 +18,7 @@
             <div class="card login-card">
                 <div class="card-body">
                     <div class="text-center">
-                        <a href="/"><img src={{ asset('/images/Logo.png') }} width="100px" /></a>
+                        <a href="/"><img src={{ asset('/images/Logo.svg') }} width="100px" /></a>
                         <p class="my-4">Please enter your login details below</p>
 
                     </div>
@@ -46,15 +48,9 @@
                                     @enderror
                             </div>
                          </div>
-                        <div class="mb-3 form-check mt-3">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label" for="exampleCheck1">Remember me</label>
-                          
-                        </div>
-
                         
                         <div class="d-grid gap-2 mt-5">
-                            <button type="submit" class="btn bg-orange btn-lg">Login</button>
+                            <button type="submit" class="btn bg-danger btn-lg text-white">Login</button>
                            
                           </div>
                         <div class="text-center my-3">
